@@ -44,14 +44,11 @@ pip install -r requirements.txt
 ```
 
 
-### 🌐 Ngrok Configuration
+**🌐 Ngrok Configuration**
 1. **Download:** [Get ngrok for Windows](https://ngrok.com/download).
 2. **Setup:** Place `ngrok.exe` in your project root.
 3. **Tunnel:** Start the tunnel on port 8000:
 
-```markdown
-.\ngrok.exe http 8000
-   ```
 
 **4. Configure Environment Variables:**
 
@@ -73,7 +70,7 @@ You will need three separate terminal windows to run the system locally.
 
 Twilio requires a public HTTPS URL to communicate with your local machine. Start an ngrok tunnel on port 8000:
 ```bash
-ngrok http 8000
+.\ngrok.exe http 8000
 ```
 **Step 2: Start the FastAPI Server**
 
