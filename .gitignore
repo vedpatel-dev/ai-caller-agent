@@ -1,2 +1,5 @@
 __pycache__/
+venv/
+ngrok.exe
+*.pyc
 .env

@@ -36,11 +36,21 @@ source venv/bin/activate
 python -m venv venv
 venv\Scripts\activate
 ```
+**Note:** If python is not recognized, try using py or python3 instead.
 
 **3. Install the required dependencies:**
 ```bash
-pip install fastapi uvicorn websockets twilio python-dotenv requests
+pip install -r requirements.txt
 ```
+
+```markdown
+### 🌐 Ngrok Configuration
+1. **Download:** [Get ngrok for Windows](https://ngrok.com/download).
+2. **Setup:** Place `ngrok.exe` in your project root.
+3. **Tunnel:** Start the tunnel on port 8000:
+   ```bash
+   .\ngrok.exe http 8000
+   ```
 
 **4. Configure Environment Variables:**
 

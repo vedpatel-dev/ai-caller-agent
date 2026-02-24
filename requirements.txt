@@ -1,0 +1,7 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+twilio==9.3.2
+python-dotenv==1.0.1
+websockets==13.1
+requests==2.32.3
+audioop-lts==0.2.2
