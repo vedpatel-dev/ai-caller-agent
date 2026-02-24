@@ -24,10 +24,10 @@ Powered by **Twilio's bi-directional Media Streams**, **FastAPI**, and **Google�
 ```bash
 git clone [https://github.com/vedpatel-dev/ai-caller-agent.git](https://github.com/vedpatel-dev/ai-caller-agent.git)
 cd "ai-caller-agent"
-'''
+```
 
 **2. Set up a virtual environment:**
-'''bash
+```bash
 # Mac/Linux
 python -m venv venv
 source venv/bin/activate  
@@ -35,24 +35,24 @@ source venv/bin/activate
 # Windows
 python -m venv venv
 venv\Scripts\activate
-'''
+```
 
 **3. Install the required dependencies:**
-'''bash
+```bash
 pip install fastapi uvicorn websockets twilio python-dotenv requests
-'''
+```
 
 **4. Configure Environment Variables:**
 
 Create a file exactly named .env in the root of your project directory. This file safely stores your API credentials and phone configurations.
-'''bash
+```bash
 GEMINI_API_KEY=create_your_google_gemini_api_key_here
 TWILIO_ACCOUNT_SID=create_your_twilio_account_sid_here
 TWILIO_AUTH_TOKEN=create_your_twilio_auth_token_here
 TWILIO_PHONE_NUMBER=create_your_twilio_purchased_phone_number_here
 TARGET_PHONE_NUMBER=enter_the_destination_phone_number_here
 NGROK_DOMAIN=enter_your_ngrok_forwarding_domain_here
-'''
+```
 
 **⚙️ How to Run the Bot**
 You will need three separate terminal windows to run the system locally.
@@ -64,16 +64,17 @@ ngrok http 8000
 ```
 **Step 2: Start the FastAPI Server**
 In a new terminal window, launch the application server:
-'''bash
+```bash
 uvicorn main:app --host 127.0.0.1 --port 8000
-'''
+```
 
 **Step 3: Trigger the Outbound Call**
 In a final terminal window, run the trigger script (or simply navigate to http://127.0.0.1:8000/make-call in your web browser) to instruct Twilio to dial the destination number:
-'''bash
+```bash
 python trigger.py
-'''
+```
 
-## Connect with the Developer ---
-Built by Ved Patel. If you're interested in AI, machine learning, or quantitative development, let's connect!---
+## Connect with the Developer 
+Built by Ved Patel. If you're interested in AI, machine learning, or quantitative development, let's connect!
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ved-rajeshkumar-patel-vrp)
