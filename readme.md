@@ -55,26 +55,30 @@ NGROK_DOMAIN=enter_your_ngrok_forwarding_domain_here
 ```
 
 **⚙️ How to Run the Bot**
+
 You will need three separate terminal windows to run the system locally.
 
 **Step 1: Start the Ngrok Tunnel**
+
 Twilio requires a public HTTPS URL to communicate with your local machine. Start an ngrok tunnel on port 8000:
 ```bash
 ngrok http 8000
 ```
 **Step 2: Start the FastAPI Server**
+
 In a new terminal window, launch the application server:
 ```bash
 uvicorn main:app --host 127.0.0.1 --port 8000
 ```
 
 **Step 3: Trigger the Outbound Call**
+
 In a final terminal window, run the trigger script (or simply navigate to http://127.0.0.1:8000/make-call in your web browser) to instruct Twilio to dial the destination number:
 ```bash
 python trigger.py
 ```
 
 ## Connect with the Developer 
-Built by Ved Patel. If you're interested in AI, machine learning, or quantitative development, let's connect!
+Built by **Ved Patel**. If you're interested in AI, machine learning, or quantitative development, let's connect!
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ved-rajeshkumar-patel-vrp)
