@@ -22,7 +22,7 @@ Powered by **Twilio's bi-directional Media Streams**, **FastAPI**, and **Google‚
 
 **1. Clone the repository and navigate to the project folder:**
 ```bash
-git clone [https://github.com/vedpatel-dev/ai-caller-agent.git](https://github.com/vedpatel-dev/ai-caller-agent.git)
+git clone https://github.com/vedpatel-dev/ai-caller-agent.git
 cd "ai-caller-agent"
 ```
 
@@ -43,13 +43,14 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-```markdown
+
 ### üåê Ngrok Configuration
 1. **Download:** [Get ngrok for Windows](https://ngrok.com/download).
 2. **Setup:** Place `ngrok.exe` in your project root.
 3. **Tunnel:** Start the tunnel on port 8000:
-   ```bash
-   .\ngrok.exe http 8000
+
+```markdown
+.\ngrok.exe http 8000
    ```
 
 **4. Configure Environment Variables:**
