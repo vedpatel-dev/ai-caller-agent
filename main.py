@@ -13,16 +13,15 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI()
 
-# --- CONFIGURATION ---
+# fetching everything from the .env file
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-# Hardcoding the Twilio number to prevent the 'None' error
-TWILIO_PHONE_NUMBER: str = "+1.........." 
-TARGET_PHONE_NUMBER: str = "+1.........." 
-NGROK_DOMAIN: str = "abundantly-unconferred-tequila.ngrok-free.dev" # ngrok forwards Twilio's request from Python script.
-
-# Using your verified SID and Token, client allows Python script to start calls
+TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
+TARGET_PHONE_NUMBER = os.getenv("TARGET_PHONE_NUMBER")
+NGROK_DOMAIN = os.getenv("NGROK_DOMAIN") 
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+
+# Initializing Twilio client
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 print(f"--- SERVER STARTING ---")
@@ -171,8 +170,8 @@ async def make_outbound_call():
     try:
         # Dual Recording help us hear both sides clearly
         call = client.calls.create(
-            from_=TWILIO_PHONE_NUMBER,
-            to=TARGET_PHONE_NUMBER,
+            from_=str(TWILIO_PHONE_NUMBER),
+            to=str(TARGET_PHONE_NUMBER),
             url=f"https://{NGROK_DOMAIN}/incoming-call",
             record=True,
             recording_channels="dual" # Channel 1 = AI Patient, Channel 2 = Receiver

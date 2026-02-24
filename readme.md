@@ -1,48 +1,79 @@
-Pretty Good AI — Voice Bot Testing Challenge
+# 🎙️ Autonomous AI Caller Agent
 
-Overview
-This project implements an automated voice bot designed to stress-test the Pretty Good AI agent. It uses Twilio bi-directional Media Streams, FastAPI, and Google’s Gemini 2.5 Flash Native Audio model. The bot calls the provided test number and simulates a high-stress patient emergency scenario. The goal is to evaluate the agent’s responsiveness, robustness, and ability to handle sudden interruptions, emotional shifts, and complex edge cases without hallucinating or failing.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=flat&logo=twilio&logoColor=white)](https://www.twilio.com/)
+[![Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=flat&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
 
-Prerequisites
+## 🚀 Overview
+This project implements a highly responsive, autonomous voice bot capable of calling and engaging in real-time, natural phone conversations. 
 
-Python 3.8+
+Designed to be highly versatile, the agent can be customized via prompts to fulfill almost any conversational role. Whether it's autonomously calling to book appointments, acting as a friendly conversational companion to help someone talk through their day, or deeply understanding and interacting with complex human emotions, this agent handles it seamlessly. 
 
-Twilio account with an active phone number
+Powered by **Twilio's bi-directional Media Streams**, **FastAPI**, and **Google’s Gemini 2.5 Flash Native Audio model**, the system processes voice-to-voice data with incredibly low latency, resulting in a fluid, human-like interactive experience.
 
-Google Gemini API Key with access to: gemini-2.5-flash-native-audio-preview-12-2025
+## 🛠️ Prerequisites
+* **Python 3.8+**
+* **Twilio Account** with an active phone number.
+* **Google Gemini API Key** (Requires access to the `gemini-2.5-flash-native-audio-preview-12-2025` model).
+* **Ngrok** to securely tunnel the local web server to the public internet for Twilio webhooks.
 
-Ngrok for tunneling local webhooks
+## 💻 Setup & Installation
 
-Setup & Installation
+**1. Clone the repository and navigate to the project folder:**
+```bash
+git clone [https://github.com/vedpatel-dev/ai-caller-agent.git](https://github.com/vedpatel-dev/ai-caller-agent.git)
+cd "ai-caller-agent"
+'''
 
-Navigate to your project folder:
-cd "Pretty Good AI"
-
-Set up a virtual environment:
+**2. Set up a virtual environment:**
+'''bash
+# Mac/Linux
 python -m venv venv
-source venv/bin/activate      (Mac/Linux)
-venv\Scripts\activate         (Windows)
+source venv/bin/activate  
 
-Install dependencies:
+# Windows
+python -m venv venv
+venv\Scripts\activate
+'''
+
+**3. Install the required dependencies:**
+'''bash
 pip install fastapi uvicorn websockets twilio python-dotenv requests
+'''
 
-Configure environment variables:
-Create a file named .env in the project root and add:
+**4. Configure Environment Variables:**
 
-GEMINI_API_KEY=your_gemini_api_key
-TWILIO_ACCOUNT_SID=your_twilio_account_sid
-TWILIO_AUTH_TOKEN=your_twilio_auth_token
-TARGET_PHONE_NUMBER=+18054398008
-TWILIO_PHONE_NUMBER=your_twilio_number
+Create a file exactly named .env in the root of your project directory. This file safely stores your API credentials and phone configurations. Do not share these keys publicly.
+'''bash
+GEMINI_API_KEY=create_your_google_gemini_api_key_here
+TWILIO_ACCOUNT_SID=create_your_twilio_account_sid_here
+TWILIO_AUTH_TOKEN=create_your_twilio_auth_token_here
+TWILIO_PHONE_NUMBER=create_your_twilio_purchased_phone_number_here
+TARGET_PHONE_NUMBER=enter_the_destination_phone_number_here
+NGROK_DOMAIN=enter_your_ngrok_forwarding_domain_here
+'''
 
-How to Run the Bot
-You will need three terminal windows.
+⚙️ How to Run the Bot
+You will need three separate terminal windows to run the system locally.
 
-1) Start Ngrok:
+Step 1: Start the Ngrok Tunnel
+Twilio requires a public HTTPS URL to communicate with your local machine. Start an ngrok tunnel on port 8000:
+```bash
 ngrok http 8000
-
-2) Start the FastAPI server:
+```
+Step 2: Start the FastAPI Server
+In a new terminal window, launch the application server:
+'''bash
 uvicorn main:app --host 127.0.0.1 --port 8000
+'''
 
-3) Trigger the outbound call:
+Step 3: Trigger the Outbound Call
+In a final terminal window, run the trigger script (or simply navigate to http://127.0.0.1:8000/make-call in your web browser) to instruct Twilio to dial the destination number:
+'''bash
 python trigger.py
+'''
+
+🤝 Connect with the Developer
+Built by Ved Patel. If you're interested in AI, machine learning, or quantitative development, let's connect!
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ved-rajeshkumar-patel-vrp)
